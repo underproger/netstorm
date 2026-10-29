@@ -324,46 +324,83 @@
 
   <!-- ========== Footer ========== -->
   <footer class="ns-footer">
-    <div class="ns-container ns-footer__grid">
-      <div class="ns-footer__brand">
-        <a class="ns-footer__logo" href="https://netstormgaming.com" aria-label="Netstorm — home">
-          <img src="img/logo-light.png" alt="Netstorm" width="119" height="76" loading="lazy">
-        </a>
-        <div>
-          <h4 class="ns-footer__title ns-footer__title--sm">Business Hours</h4>
-          <dl class="ns-footer__hours">
-            <div><dt>Monday to Friday</dt><dd>9.00 am to 5.00 pm</dd></div>
-            <div><dt>Saturday and Sunday</dt><dd>Closed</dd></div>
-          </dl>
+    <img class="ns-footer__globe" src="img/footer-globe.svg" alt="" width="650" height="650" loading="lazy">
+
+    <div class="ns-container">
+      <div class="ns-footer__grid">
+        <div class="ns-footer__brand">
+          <a class="ns-footer__logo" href="https://netstormgaming.com" aria-label="Netstorm — home">
+            <img src="img/logo-light.png" alt="Netstorm" width="164" height="105" loading="lazy">
+          </a>
+          <p class="ns-footer__tagline">Your trusted partner for online gaming licences and end-to-end consultancy.</p>
+          <div class="ns-footer__hours">
+            <h4 class="ns-footer__hours-title">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+              Business Hours
+            </h4>
+            <dl class="ns-footer__hours-list">
+              <div><dt>Monday to Friday</dt><dd>9.00 am to 5.00 pm</dd></div>
+              <div><dt>Saturday and Sunday</dt><dd>Closed</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <nav class="ns-footer__col" aria-label="Information">
+          <p class="ns-footer__eyebrow">Explore</p>
+          <h4 class="ns-footer__title">Information</h4>
+          <ul class="ns-footer__links">
+            <li><a href="https://netstormgaming.com/about-us/">About us</a></li>
+            <li><a href="https://netstormgaming.com/faq/">FAQ</a></li>
+            <li><a href="https://netstormgaming.com/contact-us/">Contact us</a></li>
+          </ul>
+        </nav>
+
+        <nav class="ns-footer__col" aria-label="Gaming licences">
+          <p class="ns-footer__eyebrow">Our expertise</p>
+          <h4 class="ns-footer__title">Gaming licences</h4>
+          <ul class="ns-footer__links">
+            <li><a href="https://netstormgaming.com/anjouan-gaming-licence/">Anjouan</a></li>
+            <li><a href="https://netstormgaming.com/curacao-gaming-licence/">Curacao</a></li>
+            <li><a href="https://netstormgaming.com/contact-us/">Kahnawake</a></li>
+            <li><a href="https://netstormgaming.com/contact-us/">Malta</a></li>
+          </ul>
+        </nav>
+
+        <div class="ns-newsletter">
+          <span class="ns-newsletter__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <p class="ns-newsletter__eyebrow">Stay in the loop</p>
+          <h4 class="ns-newsletter__title">Insights, straight to your <span class="ns-newsletter__accent">inbox.</span></h4>
+          <p class="ns-newsletter__text">Join our subscribers' list to be kept up to date with the latest news.</p>
+          <form class="ns-subscribe" action="#" method="post">
+            <label class="sr-only" for="ns-subscribe-email">Email</label>
+            <input class="ns-subscribe__input" id="ns-subscribe-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+            <button class="ns-subscribe__btn" type="submit">Subscribe
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            </button>
+          </form>
+          <p class="ns-newsletter__note">No spam. Just valuable updates.</p>
         </div>
       </div>
-      <div>
-        <h4 class="ns-footer__title">Information</h4>
-        <ul class="ns-footer__links">
-          <li><a href="https://netstormgaming.com/about-us/">About us</a></li>
-          <li><a href="https://netstormgaming.com/faq/">FAQ</a></li>
-          <li><a href="https://netstormgaming.com/contact-us/">Contact us</a></li>
-        </ul>
+
+      <div class="ns-footer__contacts">
+        <div class="ns-footer__contact-list">
+          <a class="ns-footer__contact" href="tel:+447450760338">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.7 3.8 5 5c-1.5.7-1.7 2.3-1.2 4.2 1.4 5.3 6.9 10.5 11.9 11.2 2 .2 3.4-.4 4-1.9l.8-2.6-4.9-2.5-2.1 2c-2.3-1.2-4.2-3.1-5.5-5.5l1.9-2.1-2.2-4Z"/></svg>
+            +44 7450 760 338
+          </a>
+          <span class="ns-footer__contact">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5.2-8 11-8 11s-8-5.8-8-11a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            71-75 Shelton Street, Covent Garden, London
+          </span>
+        </div>
+        <a class="ns-footer__talk" href="https://netstormgaming.com/contact-us/">Let's talk about your project
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
       </div>
-      <div>
-        <h4 class="ns-footer__title">Gaming licences</h4>
-        <ul class="ns-footer__links">
-          <li><a href="https://netstormgaming.com/anjouan-gaming-licence/">Anjouan</a></li>
-          <li><a href="https://netstormgaming.com/curacao-gaming-licence/">Curacao</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="ns-footer__title">Newsletter</h4>
-        <p class="ns-footer__text">Join our subscribers' list to be kept up to date with the latest news</p>
-        <form class="ns-subscribe" action="#" method="post">
-          <label class="sr-only" for="ns-subscribe-email">Email</label>
-          <input class="ns-subscribe__input" id="ns-subscribe-email" type="email" name="email" placeholder="Email" autocomplete="email" required>
-          <button class="ns-subscribe__btn" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-    <div class="ns-footer__bottom">
-      <div class="ns-container ns-footer__bottom-in">
+
+      <div class="ns-footer__bottom">
         <span>© Copyright 2026. All rights reserved by Netstorm Consulting.</span>
         <span class="ns-footer__legal">
           <a href="https://netstormgaming.com/terms/">Terms and Conditions</a>
