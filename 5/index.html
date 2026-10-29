@@ -15,13 +15,73 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
 .tile{transition:border-color .2s ease, background .2s ease}
 .tile:hover{border-color:#D41C8C;background:#131E36}
 .flink{color:#9CA8BE}.flink:hover{color:#FFFFFF}
+.nav-toggle{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.burger{display:none}
+.burger .i-close{display:none}
+.nav-toggle:checked ~ .burger .i-open{display:none}
+.nav-toggle:checked ~ .burger .i-close{display:block}
+.nav-toggle:focus-visible ~ .burger{outline:2px solid currentColor;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:1024px){
+h1{font-size:64px !important}
+h2{font-size:44px !important}
+}
+@media (max-width:900px){
+.hdr{padding:12px 24px !important;gap:0 !important}
+.hdr img{height:46px !important}
+.burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;box-sizing:border-box;border-radius:12px;border:1px solid #2A3858;color:#E9EDF5;cursor:pointer;margin-left:auto}
+.hdr nav{display:none !important;order:3;width:100%;box-sizing:border-box;flex-direction:column;align-items:stretch !important;gap:2px !important;margin-top:12px;padding:8px !important;border-radius:16px !important}
+.hdr nav > a,.hdr .dd > a{padding:13px 14px !important;border-radius:10px !important}
+.hdr .dd > a svg{display:none}
+.hdr .dd .menu{display:block;position:static;padding:0}
+.hdr .dd .menu > div{border:0 !important;background:none !important;padding:0 0 0 14px !important;min-width:0 !important}
+.hdr-cta{display:none !important;order:4;width:100%;justify-content:center;margin-top:10px}
+.nav-toggle:checked ~ nav{display:flex !important}
+.nav-toggle:checked ~ .hdr-cta{display:flex !important}
+}
+@media (max-width:767px){
+h1{font-size:40px !important;letter-spacing:-0.035em !important}
+h2{font-size:32px !important}
+.tb > div{padding:8px 16px !important;gap:4px 16px !important}
+.hdr{padding:12px 16px !important}
+.hdr img{height:44px !important}
+.hero{padding:56px 16px 48px !important}
+.hero p{font-size:12px !important;border-radius:14px !important;align-items:flex-start !important;text-align:left;margin-bottom:24px !important}
+.hero p > span{flex:none;margin-top:5px}
+.hero h1 ~ a{width:100%;justify-content:center;box-sizing:border-box;margin-top:32px !important}
+.hero > div:last-child{margin-top:40px !important}
+.hero img{height:260px !important;border-radius:16px !important}
+.about{padding:0 16px 64px !important;gap:12px !important}
+.about > div:first-child{padding:28px 22px !important;border-radius:20px !important}
+.about > div:last-child{gap:12px !important}
+.about > div:last-child > div{padding:26px !important;gap:24px !important;border-radius:20px !important}
+.about > div:last-child > div > div > div:first-child{font-size:64px !important}
+.about img{height:240px !important;border-radius:20px !important}
+.services > div,.process > div{padding:64px 16px !important}
+.services > div > div:first-child{margin-bottom:32px !important}
+.services > div > div:last-child{gap:12px !important}
+.services > div > div:last-child > div{padding:8px !important;border-radius:20px !important}
+.tile{padding:20px !important}
+.process > div > div:first-child{margin-bottom:36px !important}
+.process ol{gap:36px !important}
+.process h3{font-size:24px !important}
+.cta{padding:0 16px 64px !important}
+.cta > div{padding:32px 22px !important;border-radius:22px !important;gap:32px !important}
+.cta h2{margin-bottom:24px !important}
+.cta a{width:100%;justify-content:center;box-sizing:border-box}
+.cta dl{gap:28px !important}
+.cta dt{font-size:44px !important}
+footer > div:first-child{padding:56px 16px 32px !important;gap:36px !important}
+footer > div:last-child{padding:20px 16px 32px !important}
+footer > div:last-child > span:last-child{flex-wrap:wrap;gap:8px 20px !important}
+}
 </style>
 </head>
 <body>
 <div style="font-family: 'Geist', system-ui, sans-serif; color: #E9EDF5; background: #0A1020; min-height: 100%">
 
   <!-- Top bar -->
-  <div style="border-bottom: 1px solid #1F2B44; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #9CA8BE">
+  <div class="tb" style="border-bottom: 1px solid #1F2B44; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #9CA8BE">
     <div style="max-width: 1240px; margin: 0 auto; padding: 10px 28px; display: flex; flex-wrap: wrap; gap: 8px 28px">
       <span>71-75 Shelton Street, Covent Garden, London</span>
       <a href="tel:+447450760338" style="color: #9CA8BE">+ 44 7450 760 338</a>
@@ -29,10 +89,15 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
   </div>
 
   <!-- Header -->
-  <header style="position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 20px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+  <header class="hdr" style="position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 20px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
     <a href="https://netstormgaming.com" aria-label="Netstorm — home" style="display: flex">
       <img src="img/logo-light.png" alt="Netstorm" style="height: 60px; width: auto; display: block">
     </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="burger"><span class="sr">Menu</span>
+      <svg class="i-open" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      <svg class="i-close" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </label>
     <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 14px; font-weight: 500; background: #10192D; border: 1px solid #1F2B44; border-radius: 999px; padding: 4px">
       <a href="https://netstormgaming.com/" style="padding: 10px 16px; border-radius: 999px; background: #1C2842">Home</a>
       <a href="https://netstormgaming.com/about-us/" style="padding: 10px 16px">About</a>
@@ -50,14 +115,14 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
       <a href="https://netstormgaming.com/faq/" style="padding: 10px 16px">FAQ</a>
       <a href="https://netstormgaming.com/contact-us/" style="padding: 10px 16px">Contact</a>
     </nav>
-    <a href="https://netstormgaming.com/contact-us/" style="border: 1px solid #D41C8C; padding: 12px 20px; border-radius: 999px; font-size: 14px; font-weight: 500; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 10px">
+    <a class="hdr-cta" href="https://netstormgaming.com/contact-us/" style="border: 1px solid #D41C8C; padding: 12px 20px; border-radius: 999px; font-size: 14px; font-weight: 500; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 10px">
       <span style="width: 6px; height: 6px; border-radius: 50%; background: #D41C8C"></span>
       Get Consultation
     </a>
   </header>
 
   <!-- Hero -->
-  <section style="position: relative; padding: 120px 28px 140px; background-image: repeating-linear-gradient(0deg, rgba(126,166,255,.06) 0 1px, transparent 1px 72px), repeating-linear-gradient(90deg, rgba(126,166,255,.06) 0 1px, transparent 1px 72px)">
+  <section class="hero" style="position: relative; padding: 120px 28px 140px; background-image: repeating-linear-gradient(0deg, rgba(126,166,255,.06) 0 1px, transparent 1px 72px), repeating-linear-gradient(90deg, rgba(126,166,255,.06) 0 1px, transparent 1px 72px)">
     <div style="max-width: 980px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center">
       <p style="margin: 0 0 36px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: #C9D3E6; border: 1px solid #2A3858; background: #0E1628; border-radius: 999px; padding: 9px 18px; display: inline-flex; align-items: center; gap: 10px">
         <span style="width: 6px; height: 6px; border-radius: 50%; background: #D41C8C"></span>
@@ -75,7 +140,7 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
   </section>
 
   <!-- About (bento) -->
-  <section style="max-width: 1240px; margin: 0 auto; padding: 40px 28px 120px; display: flex; flex-wrap: wrap; gap: 16px">
+  <section class="about" style="max-width: 1240px; margin: 0 auto; padding: 40px 28px 120px; display: flex; flex-wrap: wrap; gap: 16px">
     <div style="flex: 2 1 640px; min-width: 0; background: #10192D; border: 1px solid #1F2B44; border-radius: 24px; padding: 48px">
       <p style="margin: 0 0 20px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #7EA6FF">Global Expertise in Online Gaming Licencing</p>
       <h2 style="margin: 0 0 28px; font-size: 44px; line-height: 1.08; font-weight: 600; letter-spacing: -0.035em; max-width: 680px">Over two decades of proven success in the gaming industry</h2>
@@ -109,7 +174,7 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
   </section>
 
   <!-- Services -->
-  <section style="border-top: 1px solid #1F2B44">
+  <section class="services" style="border-top: 1px solid #1F2B44">
     <div style="max-width: 1240px; margin: 0 auto; padding: 120px 28px">
       <div style="max-width: 720px; margin-bottom: 56px">
         <p style="margin: 0 0 16px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #7EA6FF">Services</p>
@@ -183,7 +248,7 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
   </section>
 
   <!-- Process -->
-  <section style="border-top: 1px solid #1F2B44">
+  <section class="process" style="border-top: 1px solid #1F2B44">
     <div style="max-width: 1240px; margin: 0 auto; padding: 120px 28px">
       <div style="max-width: 720px; margin-bottom: 64px">
         <p style="margin: 0 0 16px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #7EA6FF">Our Process</p>
@@ -222,7 +287,7 @@ a{color:#E9EDF5;text-decoration:none}a:hover{color:#7EA6FF}
   </section>
 
   <!-- CTA -->
-  <section style="max-width: 1240px; margin: 0 auto; padding: 0 28px 120px">
+  <section class="cta" style="max-width: 1240px; margin: 0 auto; padding: 0 28px 120px">
     <div style="border: 1px solid #2A3858; border-radius: 28px; padding: 64px; box-sizing: border-box; background-color: #0E1628; background-image: repeating-linear-gradient(0deg, rgba(126,166,255,.07) 0 1px, transparent 1px 56px), repeating-linear-gradient(90deg, rgba(126,166,255,.07) 0 1px, transparent 1px 56px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 40px">
       <div style="flex: 1 1 460px">
         <h2 style="margin: 0 0 32px; font-size: 52px; line-height: 1.05; font-weight: 600; letter-spacing: -0.04em">Ready to start your <span style="color: #F062B8">gaming journey?</span></h2>

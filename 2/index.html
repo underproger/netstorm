@@ -15,13 +15,78 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
 .row{transition:background .2s ease}
 .row:hover{background:#E9E9E3}
 .flink{color:#B9BBC1}.flink:hover{color:#FFFFFF}
+.nav-toggle{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.burger{display:none}
+.burger .i-close{display:none}
+.nav-toggle:checked ~ .burger .i-open{display:none}
+.nav-toggle:checked ~ .burger .i-close{display:block}
+.nav-toggle:focus-visible ~ .burger{outline:2px solid currentColor;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:1024px){
+h1{font-size:84px !important}
+h2{font-size:48px !important}
+.cta h2{font-size:64px !important}
+}
+@media (max-width:900px){
+.hdr{padding:14px 24px !important;gap:0 !important}
+.hdr img{height:48px !important}
+.burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;box-sizing:border-box;border:1px solid #131416;cursor:pointer;margin-left:auto}
+.hdr nav{display:none !important;order:3;width:100%;flex-direction:column;gap:0 !important;margin-top:14px;border-top:1px solid #131416}
+.hdr nav > a,.hdr .dd > a{display:block;padding:16px 0 !important;border-bottom:1px solid #D5D5CE !important}
+.hdr .dd .menu{display:block;position:static;padding:0}
+.hdr .dd .menu > div{border:0 !important;padding:0 0 0 16px !important;min-width:0 !important;background:none !important}
+.hdr .dd .menu a{padding:14px 0 !important;border-bottom:1px solid #D5D5CE}
+.nav-toggle:checked ~ nav{display:flex !important}
+.hero dl{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+.hero dl > div{padding:28px 0 !important;border-right:0 !important;border-bottom:1px solid #D5D5CE}
+.hero dl > div:nth-child(odd){padding-right:24px !important;border-right:1px solid #D5D5CE !important}
+.hero dl > div:nth-child(even){padding-left:24px !important}
+}
+@media (max-width:767px){
+h1{font-size:50px !important;line-height:1 !important}
+h2{font-size:34px !important;line-height:1.1 !important}
+.cta h2{font-size:44px !important}
+.tb > div{padding:10px 16px !important}
+.hdr{padding:12px 16px !important}
+.hdr img{height:44px !important}
+.hero{padding:44px 16px 0 !important}
+.hero > p{margin-bottom:24px !important;align-items:flex-start !important;font-size:13px !important}
+.hero > p > span{flex:none;width:28px !important;margin-top:9px}
+.hero h1 + div{margin-top:32px !important}
+.hero h1 + div a{width:100%;justify-content:space-between;box-sizing:border-box}
+.hero img{height:280px !important;margin-top:40px !important}
+.hero dl > div{padding-top:22px !important;padding-bottom:22px !important}
+.hero dl > div:nth-child(odd){padding-right:14px !important}
+.hero dl > div:nth-child(even){padding-left:14px !important}
+.hero dt{font-size:44px !important}
+.about > div,.services > div,.process > div{padding:64px 16px !important}
+.about > div{gap:28px !important}
+.about > div > div:first-child{max-width:none !important}
+.about img{height:280px !important;margin-top:24px !important}
+.about h2{margin-bottom:24px !important}
+.about h2 + p{font-size:21px !important;margin-bottom:24px !important}
+.services > div > div:first-child,.process > div > div:first-child{margin-bottom:36px !important;gap:12px !important}
+.services .row{position:relative;padding:24px 0 !important;gap:10px 16px !important;border-right:0 !important}
+.services .row > span:first-of-type{font-size:28px !important;padding-right:28px}
+.services a.row > svg ~ span:nth-of-type(2){flex-basis:100% !important}
+.services a.row > span[aria-hidden]{position:absolute;right:0;top:24px}
+.services h3:nth-of-type(2){margin-top:56px !important}
+.process ol{gap:36px !important}
+.process li > div{font-size:64px !important}
+.process h3{font-size:28px !important;margin-top:18px !important}
+.cta > div{padding:64px 16px !important;gap:32px !important}
+.cta a{width:100%;justify-content:space-between;box-sizing:border-box}
+footer > div:first-child{padding:56px 16px 32px !important;gap:36px !important}
+footer > div:last-child{padding:20px 16px 32px !important}
+footer > div:last-child > span:last-child{flex-wrap:wrap;gap:8px 20px !important}
+}
 </style>
 </head>
 <body>
 <div style="font-family: 'Inter', system-ui, sans-serif; color: #131416; background: #F2F2EE; min-height: 100%">
 
   <!-- Top bar -->
-  <div style="border-bottom: 1px solid #D5D5CE; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #54565C">
+  <div class="tb" style="border-bottom: 1px solid #D5D5CE; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #54565C">
     <div style="max-width: 1280px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px">
       <span>71-75 Shelton Street, Covent Garden, London</span>
       <span style="display: flex; flex-wrap: wrap; gap: 8px 28px">
@@ -32,8 +97,13 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </div>
 
   <!-- Header -->
-  <header style="max-width: 1280px; margin: 0 auto; padding: 26px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+  <header class="hdr" style="max-width: 1280px; margin: 0 auto; padding: 26px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
     <a href="https://netstormgaming.com" aria-label="Netstorm — home" style="display: flex"><img src="img/logo-dark.png" alt="Netstorm" style="height: 64px; width: auto; display: block"></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="burger"><span class="sr">Menu</span>
+      <svg class="i-open" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 8h16M4 16h16"></path></svg>
+      <svg class="i-close" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </label>
     <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 34px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase">
       <a href="https://netstormgaming.com/" style="border-bottom: 1px solid #131416; padding-bottom: 3px">Home</a>
       <a href="https://netstormgaming.com/about-us/">About</a>
@@ -52,7 +122,7 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </header>
 
   <!-- Hero -->
-  <section style="max-width: 1280px; margin: 0 auto; padding: 88px 32px 0">
+  <section class="hero" style="max-width: 1280px; margin: 0 auto; padding: 88px 32px 0">
     <p style="margin: 0 0 40px; display: flex; align-items: center; gap: 16px; font-size: 14px; font-weight: 500; color: #54565C">
       <span style="width: 48px; height: 1px; background: #131416"></span>
       Streamlined Solutions to Launch Your Gaming Business with Confidence
@@ -85,7 +155,7 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </section>
 
   <!-- About -->
-  <section style="border-top: 1px solid #D5D5CE">
+  <section class="about" style="border-top: 1px solid #D5D5CE">
     <div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; gap: 48px 80px">
       <div style="flex: 1 1 260px; max-width: 340px">
         <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #54565C; line-height: 1.6">Global Expertise in Online Gaming Licencing</p>
@@ -105,7 +175,7 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </section>
 
   <!-- Services -->
-  <section style="border-top: 1px solid #D5D5CE">
+  <section class="services" style="border-top: 1px solid #D5D5CE">
     <div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px">
       <div style="display: flex; flex-wrap: wrap; gap: 24px 80px; margin-bottom: 72px">
         <p style="margin: 0; flex: 1 1 260px; max-width: 340px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #54565C">Services</p>
@@ -163,7 +233,7 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </section>
 
   <!-- Process -->
-  <section style="background: #E9E9E3">
+  <section class="process" style="background: #E9E9E3">
     <div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px">
       <div style="display: flex; flex-wrap: wrap; gap: 24px 80px; margin-bottom: 72px">
         <p style="margin: 0; flex: 1 1 260px; max-width: 340px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #54565C">Our Process</p>
@@ -190,7 +260,7 @@ a{color:#131416;text-decoration:none}a:hover{color:#2440B8}
   </section>
 
   <!-- CTA -->
-  <section style="background: #2440B8; color: #FFFFFF">
+  <section class="cta" style="background: #2440B8; color: #FFFFFF">
     <div style="max-width: 1280px; margin: 0 auto; padding: 120px 32px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 40px">
       <h2 style="margin: 0; flex: 1 1 640px; font-family: 'Newsreader', Georgia, serif; font-weight: 300; font-size: 88px; line-height: 1; letter-spacing: -0.03em">Ready to start your <em style="font-weight: 400">gaming journey?</em></h2>
       <a href="https://netstormgaming.com/contact-us/" style="background: #FFFFFF; color: #131416; padding: 20px 30px; font-size: 15px; font-weight: 600; display: inline-flex; align-items: center; gap: 28px">Get in touch <span aria-hidden="true" style="font-size: 18px">→</span></a>

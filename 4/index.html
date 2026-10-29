@@ -15,6 +15,77 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
 .card{transition:transform .2s ease, box-shadow .2s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(21,19,26,.25)}
 .flink{color:#C9C5CF}.flink:hover{color:#FFFFFF}
+.nav-toggle{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.burger{display:none}
+.burger .i-close{display:none}
+.nav-toggle:checked ~ .burger .i-open{display:none}
+.nav-toggle:checked ~ .burger .i-close{display:block}
+.nav-toggle:focus-visible ~ .burger{outline:2px solid currentColor;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:1024px){
+h1{font-size:54px !important}
+h2{font-size:38px !important}
+}
+@media (max-width:767px){
+h1{font-size:38px !important;letter-spacing:-0.03em !important}
+h2{font-size:30px !important}
+.card h3,.process h3{font-size:22px !important}
+.tb > div{padding:8px 16px !important;font-size:12px;gap:6px 18px !important}
+}
+@media (max-width:900px){
+.hdr > div{padding:12px 24px !important;gap:0 !important}
+.cta > div > div:last-child{width:100%}
+.cta > div > div:last-child > div{flex:1 1 200px;box-sizing:border-box}
+.hdr img{height:44px !important}
+.burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;box-sizing:border-box;border-radius:12px;border:1px solid #E8E4EA;cursor:pointer;margin-left:auto}
+.hdr nav{display:none !important;order:3;width:100%;flex-direction:column;align-items:stretch !important;gap:0 !important;margin-top:12px;border-top:1px solid #E8E4EA}
+.hdr nav > a,.hdr .dd > a{padding:14px 2px;border-bottom:1px solid #E8E4EA}
+.hdr .dd > a svg{display:none}
+.hdr .dd .menu{display:block;position:static;padding:0}
+.hdr .dd .menu > div{border:0 !important;box-shadow:none !important;padding:0 0 0 14px !important;border-radius:0 !important;min-width:0 !important}
+.hdr .dd .menu a{padding:12px 2px !important;border-bottom:1px solid #E8E4EA;border-radius:0 !important}
+.hdr-cta{display:none !important;order:4;width:100%;justify-content:center;margin-top:16px}
+.nav-toggle:checked ~ nav{display:flex !important}
+.nav-toggle:checked ~ .hdr-cta{display:flex !important}
+}
+@media (max-width:767px){
+.hdr > div{padding:12px 16px !important}
+.hero{padding:12px !important}
+.hero > div{border-radius:24px !important}
+.hero > div > div{padding:36px 20px 20px !important;gap:32px !important}
+.hero p{font-size:13px !important;border-radius:16px !important;align-items:flex-start !important;margin-bottom:20px !important}
+.hero p > span{margin-top:5px;flex:none}
+.hero h1 + div{margin-top:28px !important}
+.hero a{width:100%;justify-content:center;box-sizing:border-box}
+.hero img{height:300px !important;border-radius:16px !important}
+.about{padding:64px 0 !important}
+.about > div{padding:0 16px !important;gap:36px !important}
+.about img{height:300px !important;border-radius:20px !important}
+.about > div > div:last-child{padding-bottom:0 !important}
+.about > div > div:last-child > div{position:static !important;margin-top:12px}
+.about > div > div:last-child > div > div{flex:1 1 140px;box-sizing:border-box;min-width:0 !important;padding:18px 20px !important}
+.about > div > div:last-child > div > div > div:first-child{font-size:36px !important}
+.services{padding:64px 0 !important}
+.services > div{padding:0 16px !important}
+.services > div > div:first-child{margin-bottom:28px !important}
+[role=tablist]{width:100%;box-sizing:border-box}
+[role=tablist] button{flex:1 1 0;padding:12px 6px !important;font-size:14px !important}
+.card{padding:24px !important}
+.process{padding:64px 0 !important}
+.process > div{padding:0 16px !important}
+.process > div > div:first-child{margin-bottom:32px !important}
+.process > div > div:last-child > div{padding:26px !important}
+.cta{padding:0 16px 64px !important}
+.cta > div{padding:36px 22px !important;border-radius:24px !important;gap:28px !important}
+.cta h2{margin-bottom:24px !important}
+.cta a{width:100%;justify-content:center;box-sizing:border-box}
+.cta > div > div:last-child{width:100%;gap:12px !important}
+.cta > div > div:last-child > div{flex:1 1 140px;box-sizing:border-box;min-width:0 !important;padding:20px !important}
+.cta > div > div:last-child > div > div:first-child{font-size:40px !important}
+footer > div:first-child{padding:56px 16px 32px !important;gap:36px !important}
+footer > div:last-child > div{padding:20px 16px !important}
+footer > div:last-child span:last-child{flex-wrap:wrap;gap:8px 20px !important}
+}
 .tab{border:0;cursor:pointer;font:inherit;font-size:15px;font-weight:700;padding:12px 22px;min-height:44px;border-radius:999px;background:transparent;color:#55525E}
 .tab.is-active{background:#15131A;color:#FFFFFF}
 </style>
@@ -23,7 +94,7 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
 <div style="font-family: 'Manrope', system-ui, sans-serif; color: #15131A; background: #FFFFFF; min-height: 100%">
 
   <!-- Top bar -->
-  <div style="background: #15131A; color: #C9C5CF; font-size: 13px">
+  <div class="tb" style="background: #15131A; color: #C9C5CF; font-size: 13px">
     <div style="max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center">
       <span style="display: flex; align-items: center; gap: 8px">
         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
@@ -37,11 +108,16 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
   </div>
 
   <!-- Header -->
-  <header style="border-bottom: 1px solid #E8E4EA; background: #FFFFFF">
+  <header class="hdr" style="border-bottom: 1px solid #E8E4EA; background: #FFFFFF">
     <div style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
       <a href="https://netstormgaming.com" aria-label="Netstorm — home" style="display: flex; align-items: center">
         <img src="img/logo-dark.png" alt="Netstorm" style="height: 60px; width: auto; display: block">
       </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="burger"><span class="sr">Menu</span>
+        <svg class="i-open" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="i-close" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </label>
       <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 30px; font-size: 15px; font-weight: 600">
         <a href="https://netstormgaming.com/" style="color: #C9148C">Home</a>
         <a href="https://netstormgaming.com/about-us/">About</a>
@@ -59,12 +135,12 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
         <a href="https://netstormgaming.com/faq/">FAQ</a>
         <a href="https://netstormgaming.com/contact-us/">Contact</a>
       </nav>
-      <a href="https://netstormgaming.com/contact-us/" style="background: #15131A; color: #FFFFFF; padding: 13px 22px; border-radius: 999px; font-size: 14px; font-weight: 700; min-height: 44px; box-sizing: border-box; display: flex; align-items: center">Get Consultation</a>
+      <a class="hdr-cta" href="https://netstormgaming.com/contact-us/" style="background: #15131A; color: #FFFFFF; padding: 13px 22px; border-radius: 999px; font-size: 14px; font-weight: 700; min-height: 44px; box-sizing: border-box; display: flex; align-items: center">Get Consultation</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section style="padding: 24px">
+  <section class="hero" style="padding: 24px">
     <div style="max-width: 1392px; margin: 0 auto; background: #F6F3F6; border-radius: 32px; overflow: hidden">
       <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
         <div style="flex: 1 1 560px; min-width: 0">
@@ -87,7 +163,7 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
   </section>
 
   <!-- About -->
-  <section style="padding: 120px 0">
+  <section class="about" style="padding: 120px 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 72px; align-items: center">
       <div style="flex: 1 1 520px; min-width: 0">
         <p style="margin: 0 0 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C9148C">Global Expertise in Online Gaming Licencing</p>
@@ -120,7 +196,7 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
   </section>
 
   <!-- Services -->
-  <section style="background: #F6F3F6; padding: 112px 0">
+  <section class="services" style="background: #F6F3F6; padding: 112px 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 48px">
         <div style="flex: 1 1 480px">
@@ -202,7 +278,7 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
   </section>
 
   <!-- Process -->
-  <section style="padding: 120px 0">
+  <section class="process" style="padding: 120px 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
       <div style="text-align: center; max-width: 640px; margin: 0 auto 64px">
         <p style="margin: 0 0 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C9148C">Our Process</p>
@@ -238,7 +314,7 @@ a{color:#15131A;text-decoration:none}a:hover{color:#C9148C}
   </section>
 
   <!-- CTA -->
-  <section style="padding: 0 24px 120px">
+  <section class="cta" style="padding: 0 24px 120px">
     <div style="max-width: 1200px; margin: 0 auto; background: #C9148C; color: #FFFFFF; border-radius: 32px; padding: 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px">
       <div style="flex: 1 1 460px">
         <h2 style="margin: 0 0 32px; font-size: 46px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Ready to start your gaming journey?</h2>
